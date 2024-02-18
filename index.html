@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oblig1</title>
+    <!-- regner ikke med å få denne godkjent, glemte innleveringen og skrev dette i sisteliten
+         setter pris på feedback non the less :). Mangler funksjon som endrer display på feilmelding
+         fra none til block, en sjekk på om telefonnummeret inneholder 8siffer, samt individuelle
+         funksjoner for de forskjellige feilmeldingene. Det er også en bug på funksjonen som sletter
+         billettene og som gjør at alerten ikke dukker opp (funket tidligere så vet hvor feilen er,
+         ligger på linje 55 ++å style siden riktig.) -->
+    <style> </style>
+</head>
+<body>
+<h1> Bestilling av kinobilletter</h1>
+<b> Velg film </b>
+<select id="Dropdown">
+    <option value=""> Velg film her </option>
+    <option value="option1">Star Wars: Return of the Jedi</option>
+    <option value="option2">Indiana Jones:The last crusader</option>
+    <option value="option3">Barbie: Fairytopia</option>
+</select>
+<br>
+<div style="margin-top: 20px; margin-bottom: 20px">
+    <b>Antall</b> <input  style="width: 20px" type="text" id="antall">
+</div>
+<div>
+        <b style="margin-bottom: 5px; margin-top: 5px">Fornavn:</b>
+        <input type="text" id="fornavn">
+    <br>
+        <b style="margin-bottom: 5px; margin-top: 5px">Etternavn:</b>
+        <input type="text" id="etternavn">
+    <br>
+        <b style="margin-bottom: 5px; margin-top: 5px">Telefonnr:</b>
+        <input type="text" id="telefonNr">
+    <br>
+        <b style="margin-bottom: 5px; margin-top: 5px">Epost:</b>
+        <input type="text" id="epost">
+    <br>
+        <button onclick="sjekkInfo()" id="kjøpKnapp" style="margin-top: 8px; margin-bottom: 8px;"> Kjøp billett </button>
+    <br>
+        <h2>Alle billetter</h2>
+    <br>
+        <button onclick="slettBilletter()"> Slett alle billetter</button>
+</div>
+
+<script>
+    var antallTilKjøp = document.getElementById("antall")
+    var billetterKjøpt = 0;
+    function sjekkInfo() {
+        var inputEpost = document.getElementById("epost").value;
+        var epostVer = inputEpost.includes('@'&&'.');
+        var inputNummer = parseInt(document.getElementById("telefonNr").value);
+
+        if (epostVer && Number.isInteger(inputNummer)) {
+            alert("ok");
+            billetterKjøpt = billetterKjøpt+antallTilKjøp;
+            console.log(billetterKjøpt);
+        } else {
+            alert("Vennligst skriv inn en gyldig epost");
+        }
+    };
+
+    function slettBilletter{
+        billetterKjøpt = 0;
+    };
+
+</script>
+</body>
+</html>
